@@ -1,7 +1,7 @@
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_flutter/services/counter_service.dart';
-import 'package:stacked_flutter/view/counter_view.dart';
-import 'package:stacked_flutter/view/home_view.dart';
+import 'package:stacked_flutter/view/counter/counter_view.dart';
+import 'package:stacked_flutter/view/home/home_view.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 @StackedApp(

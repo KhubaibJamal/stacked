@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_flutter/view/counter/components/counter_text_section.dart';
 import 'package:stacked_flutter/viewmodel/counter_viewmodel.dart';
 
 class CounterView extends StatelessWidget {
@@ -7,15 +8,16 @@ class CounterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder.reactive(
+    return ViewModelBuilder.nonReactive(
       viewModelBuilder: () => CounterViewModel(),
       builder: (context, counterViewModel, child) {
+        print("Counter Class");
         return Scaffold(
           body: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text(counterViewModel.counterService.counterValue.toString()),
+                CounterTextSection(),
                 ElevatedButton(
                   onPressed: () {
                     counterViewModel.addValue();
