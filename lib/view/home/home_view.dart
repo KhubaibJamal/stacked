@@ -7,18 +7,27 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder.nonReactive(
+    return ViewModelBuilder.reactive(
       viewModelBuilder: () => HomeViewModel(),
+      onViewModelReady: (model) => model.getPost(),
       builder: (context, homeViewModel, child) {
         return Scaffold(
-          appBar: AppBar(),
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(homeViewModel.counterService.counterValue.toString()),
-              ],
-            ),
+          appBar: AppBar(
+            centerTitle: true,
+            title: Text(homeViewModel.counterService.counterValue.toString()),
+          ),
+          body: ListView.builder(
+            itemCount: homeViewModel.post.length,
+            itemBuilder: (context, index) {
+              final post = homeViewModel.post[index];
+              return ListTile(
+                title: Text(post.title.toString()),
+                subtitle: Text(post.body.toString()),
+                leading: CircleAvatar(
+                  child: Text(post.id.toString()),
+                ),
+              );
+            },
           ),
         );
       },
