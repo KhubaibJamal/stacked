@@ -11,4 +11,18 @@ class ApiService {
       throw Exception("api error");
     }
   }
+
+  Future<dynamic> post(String url, {required Map<String, dynamic> body}) async {
+    final response = await http.post(
+      Uri.parse(url),
+      body: json.encode(body),
+      headers: {'Content-Type': 'application/json'},
+    );
+    if (response.statusCode >= 200 || response.statusCode < 300) {
+      print("unicorn successfully added");
+      return json.decode(response.body);
+    } else {
+      throw Exception('Api error');
+    }
+  }
 }
