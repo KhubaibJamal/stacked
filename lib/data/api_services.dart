@@ -28,6 +28,22 @@ class ApiService {
     }
   }
 
+  // api post method
+  Future<dynamic> put(String url, {required Map<String, dynamic> body}) async {
+    final response = await http.put(
+      Uri.parse(url),
+      body: json.encode(body),
+      headers: {'Content-Type': 'application/json'},
+    );
+    if (response.statusCode >= 200 || response.statusCode < 300) {
+      print("unicorn successfully updated");
+
+      return json.decode(response.body);
+    } else {
+      throw Exception('Api error');
+    }
+  }
+
   // api delete method
   Future<List<dynamic>> delete(String url) async {
     final response = await http.delete(Uri.parse(url));
