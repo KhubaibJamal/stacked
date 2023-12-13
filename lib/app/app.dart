@@ -1,5 +1,6 @@
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_flutter/services/counter_service.dart';
+import 'package:stacked_flutter/services/theme_service.dart';
 import 'package:stacked_flutter/view/counter/counter_view.dart';
 import 'package:stacked_flutter/view/home/home_view.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -17,6 +18,7 @@ import 'package:stacked_services/stacked_services.dart';
   ],
   dependencies: [
     Singleton(classType: NavigationService),
+    LazySingleton(classType: ThemeService),
     LazySingleton(classType: CounterService),
   ],
 )

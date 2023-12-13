@@ -12,6 +12,7 @@ class HomeView extends StatelessWidget {
       onViewModelReady: (model) => model.getPost(),
       builder: (context, homeViewModel, child) {
         return Scaffold(
+          backgroundColor: Theme.of(context).primaryColor,
           appBar: AppBar(
             centerTitle: true,
             title: Text(homeViewModel.counterService.counterValue.toString()),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_flutter/view/counter/components/counter_text_section.dart';
+import 'package:stacked_flutter/view/counter/components/counter_toggle_theme.dart';
 import 'package:stacked_flutter/viewmodel/counter_viewmodel.dart';
 
 class CounterView extends StatelessWidget {
@@ -13,6 +14,7 @@ class CounterView extends StatelessWidget {
       builder: (context, counterViewModel, child) {
         print("Counter Class");
         return Scaffold(
+          backgroundColor: Theme.of(context).primaryColor,
           body: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -30,6 +32,8 @@ class CounterView extends StatelessWidget {
                   },
                   child: const Text("Navigate to Home Page"),
                 ),
+                const SizedBox(height: 10),
+                const CounterToggleSection(),
               ],
             ),
           ),
